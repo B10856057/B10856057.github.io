@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <title>FaFa</title>
+    <style type="text/css">
+        * {
+            /*消除網頁邊框*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0 none;
+        }
+        
+        .item {
+            margin: 0 25px 20px;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .bg img {
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: maroon;
+            color: #FFFAFA;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .title h2 {
+            text-align: center;
+            font-size: 50px;
+        }
+        
+        .title h4 {
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: #000;
+            color: maroon;
+        }
+        
+        .title2 h2 {
+            text-align: center;
+            font-size: 50px;
+        }
+        
+        .title2 {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: #FFFFFF;
+            color: maroon;
+        }
+        
+        .title p {
+            font-size: 25px;
+            text-align: center;
+        }
+        
+        .item .pic h3 {
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .item .pic img {
+            width: 100%;
+        }
+        
+        .two {
+            margin: 60px 0;
+            background-color: #DCDCDC;
+        }
+        
+        @media (min-width: 768px) {
+            .item-group {
+                display: flex;
+            }
+        }
+        
+        .header {
+            height: 50px;
+            background-color: #000;
+            position: relative;
+        }
+        
+        nav {
+            width: 40%;
+            height: 0vh;
+            background-color: #000;
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: #A52A2A;
+            padding: 10px 20px;
+            border-bottom: 1px solid #A52A2A;
+        }
+        
+        #nav ul {
+            margin-bottom: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #nav li {
+            display: inline-block;
+            padding-left: 0;
+        }
+        
+        #nav a {
+            -moz-transition: background-color .2s ease-in-out;
+            -webkit-transition: background-color .2s ease-in-out;
+            -ms-transition: background-color .2s ease-in-out;
+            transition: background-color .2s ease-in-out;
+            position: relative;
+            display: block;
+            color: #A52A2A;
+            text-decoration: none;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 8px;
+            color: #A52A2A;
+            height: 2.5em;
+            line-height: 2.5em;
+            padding: 0 1.25em;
+        }
+        
+        #nav a:hover {
+            color: #fff !important;
+            background: #383838;
+        }
+        
+        #nav a.active:before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: #A52A2A;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px #A52A2A, 0px -8px 0px #A52A2A;
+        }
+        
+        .btn {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            display: block;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+        
+        .btn span {
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            display: block;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: #A52A2A;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px #A52A2A, 0px -8px 0px #A52A2A;
+        }
+        
+        #HCY {
+            position: absolute;
+        }
+        
+        #HCY:checked~.header nav {
+            left: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .btn {
+                position: relative;
+                display: none;
+                z-index: 1;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+        
+        .two .item {
+            display: flex;
+            margin: 0;
+        }
+        
+        .two .item .pic,
+        .two .item .text {
+            width: 50%;
+            margin: 0;
+        }
+        
+        .two .item .text {
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+        
+        .two .item .video-container,
+        .two .item .text {
+            width: 50%;
+            margin: 0;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <input type="checkbox" name="" id="HCY">
+    <div class="header">
+        <h1 class="logo">
+            <a href="index.html"><img src="https://rakumatw.r10s.com/d/strg/ctrl/27/4d18b3757651b740a55a5a4bc9c49c87727a09ee.60.1.27.2.jpg" width="50"></a>
+        </h1>
+        <label for="HCY" class="btn"> 
+            <span>選單</span>
+        </label>
+
+        <nav id="nav" style="font-family:monospace">
+            <a href="Welcome.html">ʜᴜᴀᴄʜᴇɴʏᴜᴄ</a>
+            <a href="Mars.html">ᴍᴀʀs ᴄᴏɴᴄᴇʀᴛ</a>
+            <a href="song.html">ɴᴇᴡ ᴡᴏʀʟᴅ</a>
+            <a href="EAT.html">ᴍᴀʀs sʜᴏᴘ</a>
+        </nav>
+    </div>
+    <div class="title2" style="font-family: monospace;">
+        <h2>520是你的生日</h2>
+    </div>
+
+    <div class="item">
+        <div class=video-container>
+            <iframe width="640" height="360" src="https://www.youtube.com/embed//d0pHZxIa4xo" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="text">
+            <h3>火星專屬生日快樂歌</h3>
+            <p>520&copy;華晨宇yu 祝你生日快樂。</p>
+        </div>
+    </div>
+    <div class="two ">
+        <div class="wrap ">
+            <div class="item-group ">
+                <div class="item ">
+                    <div class="pic ">
+                        <img src="https://p4.itc.cn/images01/20200526/fdb189ee2b1c4250a7795e8d2a40bd81.jpeg">
+                    </div>
+                    <div class="text">
+                        <h3>𝟻𝟸𝟻.𝟷𝟺:𝟶𝟽.ʙᴏʀɴ ᴛᴏ ʟᴏᴠᴇ</h3>
+                        <p>這是村長華晨宇送給我們的第一個禮物。</p>
+                        <p>它沒有名字。並不妨礙，它，會拼命為你撥開陰霾。</p>
+                        <p>它挺愛笑，只是，有時，會失落和悲傷。</p>
+                        <p>所以帶了一個護目鏡，萬一流淚了，還是可以保持酷酷的。</p>
+                        <p>它挺自信，只是，有時，想退縮和逃避。它有飛行器，隨時可以逃回火星。</p>
+                        <p>它很努力，耳朵都要梳理的很精緻，但又有些懶惰，是的，它有小肚子！</p>
+                        <p>它穿著勇敢的靴子。搖著驕傲的尾巴。怕冷，除了愛踹手，還喜歡穿有型的保暖內衣！</p>
+                        <p>它有些貪吃，芝士是它的麥克風。</p>
+                        <p>好了，介紹到這裡。</p>
+                        <h3>【請多關照】</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer ">
+        &copy; copyright 2020 by css Mars
+    </div>
+</body>
