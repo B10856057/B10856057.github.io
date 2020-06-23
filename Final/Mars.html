@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <title>FaFa</title>
+
+    <style type="text/css">
+        * {
+            /*消除網頁邊框*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        img {
+            vertical-align: bottom;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0 none;
+        }
+        
+        .item {
+            margin: 0 25px 20px;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .bg img {
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: maroon;
+            color: #FFFAFA;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .title h2 {
+            text-align: center;
+            font-size: 50px;
+        }
+        
+        .title h4 {
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            color: maroon;
+            background-color: #000;
+        }
+        
+        .title2 h2 {
+            text-align: center;
+            font-size: 50px;
+        }
+        
+        .title2 {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: #FFFFFF;
+            color: maroon;
+        }
+        
+        .title p {
+            font-size: 25px;
+            text-align: center;
+        }
+        
+        .item .pic h3 {
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .item .pic img {
+            width: 420px;
+            height: 420px;
+        }
+        
+        .item .pi img {
+            width: 50%;
+        }
+        
+        .item .p img {
+            width: 40%;
+        }
+        
+        .two {
+            margin: 40px 0px;
+        }
+        
+        @media (min-width: 768px) {
+            .item-group {
+                display: flex;
+            }
+        }
+        
+        .header {
+            height: 50px;
+            background-color: #000;
+            position: relative;
+        }
+        
+        nav {
+            width: 40%;
+            height: 0vh;
+            background-color: #000;
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: #A52A2A;
+            padding: 10px 20px;
+            border-bottom: 1px solid #A52A2A;
+            background-color: #000;
+        }
+        
+        #nav ul {
+            margin-bottom: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        #nav li {
+            display: inline-block;
+            padding-left: 0;
+        }
+        
+        #nav a {
+            -moz-transition: background-color .2s ease-in-out;
+            -webkit-transition: background-color .2s ease-in-out;
+            -ms-transition: background-color .2s ease-in-out;
+            transition: background-color .2s ease-in-out;
+            position: relative;
+            display: block;
+            color: #A52A2A;
+            text-decoration: none;
+            outline: 0;
+            font-weight: 600;
+            border-radius: 8px;
+            color: #A52A2A;
+            height: 2.5em;
+            line-height: 2.5em;
+            padding: 0 1.25em;
+        }
+        
+        #nav a:hover {
+            color: #fff !important;
+            background: #383838;
+        }
+        
+        #nav a.active:before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: #A52A2A;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px #A52A2A, 0px -8px 0px #A52A2A;
+        }
+        
+        .btn {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            display: block;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+        
+        .btn span {
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            display: block;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: #A52A2A;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px #A52A2A, 0px -8px 0px #A52A2A;
+        }
+        
+        #HCY {
+            position: absolute;
+        }
+        
+        #HCY:checked~.header nav {
+            left: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .btn {
+                position: relative;
+                display: none;
+                z-index: 1;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+        
+        .text {
+            margin: 20px;
+        }
+        
+        .two .item {
+            display: flex;
+            margin: 0;
+        }
+        
+        .two .item .pic {
+            width: 100%;
+            margin: 0;
+        }
+        
+        .two .item .text {
+            display: flex;
+            padding: 0 100px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+        
+        .two .item .video-container,
+        .two .item .text {
+            width: 100%;
+            margin: 0;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <input type="checkbox" name="" id="HCY">
+    <div class="header">
+        <h1 class="logo">
+            <a href="index.html"><img src="https://rakumatw.r10s.com/d/strg/ctrl/27/4d18b3757651b740a55a5a4bc9c49c87727a09ee.60.1.27.2.jpg" width="50"></a>
+        </h1>
+        <label for="HCY" class="btn"> 
+            <span>選單</span>
+        </label>
+
+        <nav id="nav" style="font-family:monospace">
+            <a href="Welcome.html">ʜᴜᴀᴄʜᴇɴʏᴜᴄ</a>
+            <a href="Mars.html">ᴍᴀʀs ᴄᴏɴᴄᴇʀᴛ</a>
+            <a href="song.html">ɴᴇᴡ ᴡᴏʀʟᴅ</a>
+            <a href="EAT.html">ᴍᴀʀs sʜᴏᴘ</a>
+        </nav>
+    </div>
+    <div class="bg">
+        <img src="img/火星.jpg">
+    </div>
+    <div class="title" style="font-family:monospace;">
+
+
+        <div class="footer ">
+            &copy; copyright 2020 by css Mars
+        </div>
+</body>
